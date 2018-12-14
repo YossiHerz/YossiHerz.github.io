@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: arial;
+}
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+.container img {
+  padding-left: 50px;
+}
+.nav1 {
+    background-color: white;
+    height: 50px;
+    width: 100%;
+}
+
+.nav {
+  list-style: none;
+  padding: 17px 0;
+    float: right;
+}
+.nav > li {
+
+ display: inline-block;
+ padding-right: 30px;
+
+}
+
+.nav > li > a {
+ color: #202020;
+ text-decoration: none;
+ text-transform: uppercase;
+}
+.nav > li > a:hover {
+ text-decoration: none;
+ color: #808080;
+}
+.welcome{
+  position: relative;
+  height: 450px;
+  width: 100%;
+  background-image: url("man-using-macbook-air_4460x4460.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  }
+.welcome h1 {
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.p {
+  float: left;
+  width: 40%;
+  padding: 50px;
+}
+.p h3 {
+  line-height: 2;
+}
+.p1 {
+  float: right;
+  width: 40%;
+  padding: 50px;
+  text-transform: uppercase;
+}
+.p1 > h3 > a {
+  text-decoration: none;
+  color: #202020;
+}
+.p1 > h3 > a:hover:after {
+  content: "";
+  clear:
+}
+.p1 > h3 > a:hover {
+  color: #808080;
+  line-height: 2;
+}
