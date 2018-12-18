@@ -3,6 +3,9 @@
   padding: 0;
   font-family: arial;
 }
+.topmargin {
+  margin-top: 50px;
+}
 .container {
   margin: 0 auto;
   width: 80%;
@@ -72,24 +75,34 @@
 .p p {
   font-size: 140%;
 }
-/*.p1 {
-  width: 40%;
-  padding: 50px;
-  text-transform: uppercase;
+#Portfolio {
+  background-color: lightgrey;
 }
-.p1 > h3 > a {
-  text-decoration: none;
-  color: #202020;
-  line-height: 3;
+.graphics {
+  margin-top: 50px;
 }
-.p1 > h3 > a:hover:after {
-  content: "";
-  clear:
+.websites {
+  height: 500px;
 }
-.p1 > h3 > a:hover {
-  color: #808080;
-  line-height: 3;
-}*/
+.containerp {
+  text-align: center;
+  width: 80%;
+  margin: 20px auto;
+}
+.a, .b, .c  {
+  display: inline-block;
+  width: 27%;
+  height: 250px;
+  border: 2px;
+  background-color: grey;
+  margin: auto;
+  margin: 3%;
+}
+#contact {
+  height: 125px;
+  text-align: center;
+  text-transform: 150%;
+}
 footer {
   width: 100%;
   height: 220px;
@@ -143,24 +156,4 @@ footer {
 .fnav > li > a:hover {
   text-decoration: none;
   color: darkgrey;
-}
-.graphics {
-  height: 500px;
-}
-.websites {
-  height: 500px;
-}
-.containerp {
-  text-align: center;
-  width: 80%;
-  margin: auto;
-}
-.a, .b, .c  {
-  display: inline-block;
-  width: 23%;
-  height: 350px;
-  border: 2px;
-  background-color: grey;
-  margin: auto;
-  margin: 3%;
 }
