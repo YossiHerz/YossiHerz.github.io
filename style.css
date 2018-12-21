@@ -10,7 +10,7 @@
   margin: 0 auto;
   width: 80%;
 }
-.container img {
+.logotop {
   padding-left: 50px;
 }
 .nav1 {
@@ -86,8 +86,7 @@
 }
 .containerp {
   text-align: center;
-  width: 80%;
-  margin: 20px auto;
+  margin: 0px auto;
 }
 .a, .b, .c  {
   display: inline-block;
@@ -97,6 +96,17 @@
   background-color: grey;
   margin: auto;
   margin: 3%;
+  overflow: hidden;
+}
+.img {
+  width: 100%;
+  margin-top: auto;
+  height: auto;
+}
+.c .img {
+  width: auto;
+  margin-top: auto;
+  height: 100%;
 }
 #contact {
   height: 125px;
