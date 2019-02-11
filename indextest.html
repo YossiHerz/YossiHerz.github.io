@@ -6,12 +6,23 @@
     <title></title>
   </head>
   <body>
-        <p class='xx'></p>
-
+        <div class="userEntry">
+          <input type="text" name="input" value="" class="field">
+          <input type="submit" class="submit">
+        </div>
+        <p class="display"></p>
     <script type="text/javascript">
- const tyo = document.querySelector('.xx');
-  tyo.textContent = "peanuts";
-
+const userEntry = document.querySelector(".userEntry")
+const display = document.querySelector(".display")
+const submit = document.querySelector(".submit")
+function checkNumber(){
+if ( userEntry === 10 ) {
+  display.textContent = 'number';
+} else {
+  display.textContent = 'not a number';
+}
+}
+submit.addEventListener('click', checkNumber)
     </script>
   </body>
 </html>
