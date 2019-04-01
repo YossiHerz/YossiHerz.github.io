@@ -1,133 +1,119 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html>
+<head>
     <meta charset="utf-8">
-    <title>Yossi Herz</title>
-    <link rel="icon" href="minilogo.jpg">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <div class="topmargin">
-  <header>
-    <div class="nav1">
-     <div class="container">
-        <img class="logotop" src="logo1.jpg" alt="logo">
-        <ul class="nav">
-         <li><a href="#">Home</a></li>
-         <li><a href="#Portfolio">Portfolio</a></li>
-         <li><a href="#about">About</a></li>
-         <li><a href="#contact">Contact</a></li>
-         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-  <i class="fa fa-bars"></i>
-       </ul>
-       </div>
-       </div>
-     </header>
-     <body>
-       <div class="welcome">
-         <div class="container">
-           <h1>Hello, my name is Yossi Herz, and I love creating beautiful, easy to use websites.</h1>
-         </div>
-       </div>
-       <div class="container">
-      <div class="p" id="about">
-        <h3>About Me</h3>
-        <p>It’s probably been 10 years since I first typed the words, "Hello world". Since then I have taught myself graphic design, how to play guitar, and all the basics of web development. Today I aspire to provide cutting edge, fully responsive websites, using the elements of design and the importance of the harmony. These are skills that I have acquired as a graphic designer and guitar player. Hence, I seek to deliver websites, with fine-tuned code as well as beautiful design providing a smooth experience to the client.</p>
-      </div>
-      </div>
-      <div id="Portfolio">
-        <div class="container">
-          <div class="containerp">
-            <div class="graphics">
-              <div class="a">
-                <img class="img" src="hhlogo.jpg" alt="logo design">
-              </div>
-              <div class="b">
-                <img class="img" src="burma.jpg" alt="logo design">
-              </div>
-              <div class="c">
-                <img class="img" src="noteoff.jpg" alt="logo design">
-              </div>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yossi Herz - Web Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+</head>
+<body>
+    <div class="background-photo">
+        <header>
+            <div class="logo">
+              <img src="personal-logo.png" alt="">
             </div>
-            <div class="websites">
-              <div class="a">
-               <img class="img" src="tshirt.jpg" alt="logo design">
-              </div>
-              <div class="b">
-                <img class="img" src="violin.jpg" alt="logo design">
-              </div>
-              <div class="c">
-                <img class="img" src="splogo.jpg" alt="logo design">
-              </div>
-            </div>
-            <div class="websites">
-              <div class="a">
-               <img class="img" src="blarelogo.jpg" alt="logo design">
-              </div>
-              <div class="b">
-                <img class="img" src="file.jpg" alt="logo design">
-              </div>
-              <div class="c">
-                <img class="img" src="splogo.jpg" alt="logo design">
-              </div>
-            </div>
-          </div>
+            <i class="fas fa-bars fa-2x" id="menu"></i>
+            <nav>
+                <ul>
+                    <li><a href="#background-photo">Home</a></li>
+                    <li><a href="#skills-intro">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="heading-container animated fadeIn">
+            <p class="heading-text a"><span class="big">Hello,</span> I am Yossi Herz,<br> 
+                I design and develop amazing websites, <br>
+                to bring your vision to the <span class="big">world.</span></p>
         </div>
-      </div>
-        <div id="contact">
-          <h3>Yossi Herz</h3>
-          <p>506 Stirling Ave. Lakewood, NJ 08701<br>
-          917.202.4528<br>
-          josephherz126@gmail.com</p>
+    </div>
+    <section class="principle">
+        <p id="principle-text">Simplicity and functionality are my chief design principles.</p>
+        <img id="principle-img" src="laptop.png" >
+    </section>
+    <section class="skills">
+        <div class="background-photo">
+            <p id="skills-intro">My Principle Skills:</p>
         </div>
-  </body>
-  <footer>
-<div class="footerleft">
-  <ul class="fnav">
-   <li><a href="#">Home</a></li>
-   <li><a href="#Portfolio">Portfolio</a></li>
-   <li><a href="#about">About</a></li>
-   <li><a href="#contact">Contact</a></li>
-  </ul>
-  </div>
-</div>
-<div class="footercenter">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-       commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-       velit esse cillum dolore eu fugiat nulla pariatur.</p>
-</div>
-<div class="footerright">
-  <p>Sign up for my e-mails</p>
-  <form class="myForm" action="index.html" method="post">
-     Name<br>
-    <input type="text" name="name" value=""><br>
-    E-mail address<br>
-    <input type="text" name="email" value=""><br>
-    <input type="submit" onclick="ValidateEmail()"value="Submit">
-    <script>
-    function ValidateEmail() {
-       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
-     {
-    return (true)
-          alert('Thank you for signing up to my e-mails.')
-  }
-    alert("You have entered an invalid email address!")
-    return (false)
-  }
-  function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-    </script>
-  </form>
-</div>
-  </footer>
-</div>
+        <div class="container skills-container">
+            <img id="skills-img" src="html5-css-javascript-logos.png" >
+            <p id="skills-text">Languages: HTML5, CSS3, & JavaScript.</p>
+        </div>   
+    </section>
+    <section class="library">
+        <div class="container library-container">
+            <p id="library-text">Frameworks and libraries:<br/> SASS, BootStrap & React</p>
+            <img id="library-img" src="https://devchat.tv/wp-content/uploads/2016/10/react-logo-1000-transparent.png" >
+        </div>   
+    </section>
+    <section class="graphics">
+        <div class="container graphics-container">
+            <img id="graphics-img" src="download.png" >
+            <p id="graphics-text">Graphic Skills: <br/> Photoshop, Adobe Illustrator, Visual Design Principles.</p>
+        </div>   
+    </section>
+    <div class="background-photo small"  id="portfolio">
+        <p id="portfolio-intro">My Work:</p>
+    </div>
+    <section class="portfolio">
+        <div class="card-container">
+            <div class="card">
+              <div class="photo photo1"></div>
+               <div class="card-text">
+                 <h5>Burma Logo</h5>
+                 <p>A logo design entry for a Graphic design competition.</p>
+               </div>
+            </div> 
+            <div class="card">
+              <div class="photo photo2"></div>
+               <div class="card-text">
+                 <h5>Hassid Hoodie Co. Logo</h5>
+                 <p>A logo design for a tshirt business.</p>
+               </div>
+            </div>
+            <div class="card">
+              <div class="photo photo3"></div>
+                 <div class="card-text">
+                 <h5>Violin & Co. Logo</h5>
+                 <p>A logo design entry for a Graphic design competition.</p>
+                 </div>
+              </div> 
+            <div class="card">
+              <div class="photo photo4"></div>
+                 <div class="card-text">
+                   <h5>Instagram Post for Jewerly Store</h5>
+                   <p>A advertorial Instagram post for a jewerly store.</p>
+                </div>
+            </div>
+            <div class="card">
+              <div class="photo photo5"></div>
+                <div class="card-text">
+                  <h5>T-shirt Design for T-shirt Business</h5>
+                  <p>A t-shirt design for a t-shirt business.</p>
+                </div>
+            </div>   
+            <div class="card">
+              <div class="photo photo6"></div>
+                 <div class="card-text">
+                  <h5>Large Format Poster</h5>
+                  <p>12' Full wall decorative design for Sukkah.</p>
+                </div>
+            </div>                                              
+        </div>
+    </section>        
+    <footer  id="footer">
+        <p>Let's connect:</p>
+        <div class="footer-container">
+            <a href=""><i class="fab fa-linkedin fa-3x"></i></a>
+            <a href="https://www.freecodecamp.org/joeherz"><i class="fab fa-free-code-camp fa-3x"></i></a>
+            <a href=""><i class="far fa-envelope fa-3x"></i></a>
+        </div>    
+        <p>© 2019 Yossi Herz</p>
+    </footer>
+</body>
 </html>
