@@ -234,7 +234,7 @@ nav ul li a:hover {
     padding: 100px;
     display: inline-block;
     text-align: end;
-    color: white;
+    color: black;
 }
 #skills-img {
     height: 80px;
@@ -386,6 +386,7 @@ nav ul li a:hover {
     height: 300px;
     width: 300px;
     background-size: cover;
+    background-position: center;
     border-bottom: 2px solid #ddd; 
 }
 .card-text h5 {
@@ -415,6 +416,15 @@ nav ul li a:hover {
 .photo6 {
     background-image: url(viewfile.jpg);
     width: 300px;
+}
+.photo7 {
+    background-image: url(splogo.jpg);
+}
+.photo8 {
+    background-image: url('obel j 5.jpg');
+}
+.photo9 {
+    background-image: url(noteoff.jpg);
 }
 /* footer */
 footer {
