@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>M Herz & Son</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }    
+    /*   Color Theme Swatches   */
+    .We-Are-Electric---Yellow-and-Navy-Blue-1-hex { color: #333333; }
+    .We-Are-Electric---Yellow-and-Navy-Blue-2-hex { color: #FFFDFF; }
+    .We-Are-Electric---Yellow-and-Navy-Blue-3-hex { color: #E3AC1B; }
+    .We-Are-Electric---Yellow-and-Navy-Blue-4-hex { color: #2E3444; }
+    .We-Are-Electric---Yellow-and-Navy-Blue-5-hex { color: #1F2C3D; }
+    /*           */
+    html, body {
+        height: 100%;
+    }
+    nav {
+        background: lightgray;
+    }
+    .navbar > a {
+        padding: 10px;
+    }
+    .navbar-custom {
+        width: 80%;
+        margin: auto;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        color: #1F2C3D;
+        font-size:16px;/*
+        text-transform: uppercase;*/
+        padding: 10px;
+    }
+    .showcase{
+        height: 95%;
+    }
+    #showcase {
+       background: url(mherzson.png);
+       background-position: center;
+       background-size: cover;
+       height: 100%;
+       position: relative;
+     /*  -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+       clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+       background-attachment: fixed;
+    */}
+    #text-cont-center {
+        position: absolute;
+        top: 30%;
+
+    }
+    #text-cont-center h1 {
+        color: white;
+        padding: 20px;
+        font-weight: 400;
+        font-size: 5.5em;
+        text-transform: uppercase;
+        font-weight:300;
+        text-align:center;
+        width: 80%;
+        margin: auto;
+    }
+    #description-cont {
+        width: 80%;
+        margin: auto;      
+    }     
+    #description {
+        color: white;
+        padding-left: 24px;
+        font-weight: 700;
+        font-size: 1.4em;
+        width: 40%
+    }   
+    #description-btn {
+        padding: 15px;
+        margin: 25px 0 0 24px;
+        width: 150px;
+        font-size: 1.3em;
+        color: #1F2C3D;
+    }
+    .slide  {
+        background-position: center;
+        background-size: cover;
+        position: relative;   
+        overflow: hidden;     
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+    #whoweare * {
+        text-align: right;
+        color: #1F2C3D;
+    } 
+    #whoweare h1{
+        font-size: 3em;
+        padding: 150px 100px 50px 0;
+        text-transform: uppercase;
+    } 
+    #whoweare p {
+        font-size: 1.8em;
+        padding: 0 100px 150px 0;
+        width: 40%;
+        float: right;
+    } 
+    #whoweare {
+        background: url(mherz-whoweare.png);
+    }   
+    #our-cutters {
+        background: url(mherz-our-cutters.png);
+    }
+    #our-cutters * {
+        text-align: left;
+        color: #1F2C3D;
+    } 
+    #our-cutters h1{
+        font-size: 3em;
+        padding: 150px 0 50px 100px;
+        text-transform: uppercase;
+    } 
+    #our-cutters p {
+        font-size: 1.8em;
+        padding: 0 0 150px 100px;
+        width: 40%;
+        float: left;
+    }   
+    .your-cust {
+        background: url(mherz-yourcust.png) !important;
+    }
+    .history {
+        background: grey;
+    } 
+    #mherz-img {
+        height: 12em;
+        width: auto;
+    }
+    .rdg-expertise-category { float: left; min-height: 170px; width: 90%; display:flex;flex-direction:column; padding-bottom: 40px;}
+    .rdg-expertise-category span { margin-top:auto; font-size: 26px; font-weight: bold; padding: 18px; }
+
+    .rdg-expertise-description { min-height: 170px; display:flex;flex-direction:column; padding-bottom: 20px; max-width: 300px;}
+    .rdg-expertise-description span { margin-top:15px; font-size: 18px;font-family: 'Roboto', sans-serif;}
+
+    .rdg-expertise-bar { margin: auto; height: 0; width: 0; overflow: hidden; }
+    @keyframes rdg-expertise-bar-animation-keyframe {
+    0%   { height: 0; width: 0; }
+    100% {width: 16px;height: 150px;} 
+    }
+    .rdg-animated-delay-0 {animation: 1.5s forwards 0s rdg-expertise-bar-animation-keyframe; width: 0px;}
+    .rdg-animated-delay-1-5 {animation: 1.5s forwards 1.5s rdg-expertise-bar-animation-keyframe; width: 0px;}
+    .rdg-animated-delay-3 {animation: 1.5s forwards 3s rdg-expertise-bar-animation-keyframe; width: 0px;}
+    .rdg-animated-delay-4-5 {animation: 1.5s forwards 4.5s rdg-expertise-bar-animation-keyframe; width: 0px;}
+    .rdg-animated-delay-6 {animation: 1.5s forwards 6s rdg-expertise-bar-animation-keyframe; width: 0px;}
+
+
+    .rdg-first-bg {background-color: #2E3444;}
+    .rdg-today-bg {background-color: #E3AC1B;}
+    .row {
+    margin: auto;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light navbar-custom bg-light">
+        <a class="navbar-brand" href="#">M. Herz & Son</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#whoweare">Our Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#our-cutters">Our Diamonds</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">contact</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="showcase">
+        <div id="showcase">
+            <div id="text-cont-center">
+                <h1 class="text-left">Stunningly perfect.</h1>
+                <div id="description-cont">
+                  <p class="text-left" id="description">Curated by our team of expert diamond cutters, our diamonds have a unique
+                        stamp of perfectionist touch.</p>
+                  <button id="description-btn" type="button" onclick="window.location.href='#whoweare'" class="btn btn-light">Learn more</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="whoweare" class="slide">
+            <div>
+                <h1 class="text-right">Who we are</h1>
+                <p class="text-right">Our mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
+            </div>
+    </section>    
+    <section id="our-cutters"class="slide">
+            <div>
+                <h1 class="text-left">Our Cutters</h1>
+                <p class="text-left">Our mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
+            </div>
+    </section>    
+    <section id="whoweare" class="slide your-cust">
+            <div>
+                <h1 class="text-right">Your Customers</h1>
+                <p class="text-right">Our mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
+            </div>
+    </section>    
+    <section>
+      <h1 class="text-center" style="font-size: 3em; font-weight: 500;">Our History</h1>
+      <div class="row mt-5 pt-5">
+        <div class="col-6 text-right">
+          <div class="rdg-expertise-bar rdg-first-bg rdg-animated-delay-0 text-right" style="float: right;"></div>
+          <div class="rdg-expertise-category"><span>1948</span></div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="col-6"><div class="rdg-expertise-description"><span>In 1948, after Moses Herz, arived at the American shores. He founded a diamond manufacturing...</span></div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-6 text-right">
+          <div class="rdg-expertise-bar rdg-first-bg rdg-animated-delay-1-5 text-right" style="float: right;"></div>
+          <div class="rdg-expertise-category"><span>1952</span></div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="col-6"><div class="rdg-expertise-description"><span>M. Herz & Son reaches 1,000 clients. Analysing your business, your customers,  your market, using our Business Fitness diagnostic framework.</span></div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-6 text-right">
+          <div class="rdg-expertise-bar rdg-first-bg rdg-animated-delay-3 text-right" style="float: right;"></div>
+          <div class="rdg-expertise-category"><span>1976</span></div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="col-6"><div class="rdg-expertise-description"><span>Using our proprietary business fitness tools to build your tailored implementation plan with tangible business benefits.</span></div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-6 text-right">
+          <div class="rdg-expertise-bar rdg-first-bg rdg-animated-delay-4-5 text-right" style="float: right;"></div>
+          <div class="rdg-expertise-category"><span>1995</span></div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="col-6"><div class="rdg-expertise-description"><span>Bringing your plan to life with customised tools, products, partners and services. Pragmatic, medium- and long- term wins. </span></div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-6 text-right">
+          <div class="rdg-expertise-bar rdg-today-bg rdg-animated-delay-6 text-right" style="float: right;"></div>
+          <div class="rdg-expertise-category"><span>Today</span></div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="col-6"><div class="rdg-expertise-description" style="padding: 10px 0 100px 0;"><span>Remains ent solutions that make a real difference to your business through "business fitness" health checks.</span></div>
+        </div>
+      </div>
+    </section>
+    <div style="height: 150px;">
+            <polygon fill="black" points="0,100 100,0 100,100"/>
+    </div>
+    <section style="background:#d3d3d3;">
+        <div id="mission">
+            <h1 class="text-center">Our Mission</h1>
+            <p class="text-center">ur mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
+        </div>
+    </section>
+    <section class="history" >
+        <footer>
+            
+        </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!--
+       <img class="col img-fluid " id="mherz-img" src="http://pietrapr.com/wordpress/wp-content/uploads/2014/03/12s-e1395462585657.jpeg" alt="">
+-->
