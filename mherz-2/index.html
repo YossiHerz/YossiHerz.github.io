@@ -20,6 +20,7 @@
     /*           */
     html, body {
         height: 100%;
+        scroll-behavior: smooth;
     }
     nav {
         background: lightgray;
@@ -33,7 +34,7 @@
     }
     .navbar-custom .navbar-nav .nav-link {
         color: #1F2C3D;
-        font-size:16px;/*
+        font-size:18px;/*
         text-transform: uppercase;*/
         padding: 10px;
     }
@@ -52,14 +53,13 @@
     */}
     #text-cont-center {
         position: absolute;
-        top: 30%;
-
+        top: 20%;
     }
     #text-cont-center h1 {
         color: white;
         padding: 20px;
         font-weight: 400;
-        font-size: 5.5em;
+        font-size: 4.5em;
         text-transform: uppercase;
         font-weight:300;
         text-align:center;
@@ -74,7 +74,7 @@
         color: white;
         padding-left: 24px;
         font-weight: 700;
-        font-size: 1.4em;
+        font-size: 1.2em;
         width: 40%
     }   
     #description-btn {
@@ -83,6 +83,25 @@
         width: 150px;
         font-size: 1.3em;
         color: #1F2C3D;
+    }
+    @media(max-width: 700px){
+        #text-cont-center {
+           position: absolute;
+           top: 15%;
+        }
+        #text-cont-center {
+          width: 100%;
+        }   
+        #text-cont-center h1 {
+          font-size: 3em;
+          width: 95%;
+        }
+        #description-cont {
+            width: 100%;
+        }
+        #description {
+            width: 90%;
+        }
     }
     #whoweare {
         background: url(mherz-whoweare.png);
@@ -99,56 +118,108 @@
         position: relative;
     }
     .your-cust {
-        background: url(mherz-yourcust.png) !important;
-        background-position: center;
-        background-size: cover;
-        height: 100%;
+        background: url(mherz-our-cust.png) !important;
+        background-position: center !important;
+        background-size: cover !important;
+        height: 100% ;
         position: relative;
-    }
-    .slide  {
-        background-position: center;
-        background-size: cover;
-        position: relative;   
-        overflow: hidden;  
-        height: 100%;   
     }
     #whoweare * {
         text-align: right;
         color: #1F2C3D;
     } 
     #whoweare h1{
-        font-size: 3em;
-        padding: 150px 100px 50px 0;
+        font-size: 2.5em;
+        padding: 150px 100px 20px 0;
         text-transform: uppercase;
     } 
     #whoweare p {
-        font-size: 1.8em;
+        font-size: 18px;
         padding: 0 100px 150px 0;
         width: 40%;
         float: right;
+        line-height: 1.42857143;
     } 
     #our-cutters * {
         text-align: left;
         color: #1F2C3D;
+        overflow: hidden;
     } 
     #our-cutters h1{
-        font-size: 3em;
-        padding: 150px 0 50px 100px;
+        font-size: 2.5em;
+        padding: 150px 0 20px 100px;
         text-transform: uppercase;
     } 
     #our-cutters p {
-        font-size: 1.8em;
+        font-size: 18px;
         padding: 0 0 150px 100px;
         width: 40%;
         float: left;
+        line-height: 1.42857143;
     }   
-    .history {
-        background: grey;
-    } 
-    #mherz-img {
-        height: 12em;
-        width: auto;
+    @media(max-width: 700px){
+        #whoweare * {
+            text-align: center !important;
+            color: #1F2C3D;
+        } 
+        #whoweare h1{
+            font-size: 3em;
+            padding: 80px 0;
+            text-transform: uppercase;
+        } 
+        #whoweare p {
+            font-size: 16px;
+            padding: 20px;
+            width: 90%;
+            float: none;
+            margin: auto;
+            line-height: 1.42857143;
+        } 
+        #our-cutters * {
+            text-align: center !important;
+            color: #1F2C3D;
+        } 
+        #our-cutters h1{
+            font-size: 2.5em;
+            padding: 80px 0 20px 0;
+            text-transform: uppercase;
+        } 
+        #our-cutters p {
+            text-align: center !important;
+            font-size: 16px;
+            padding: 20px;
+            width: 90%;
+            float: none;
+            margin:auto;
+            line-height: 1.42857143;
+        }   
     }
+    footer {
+        background: url(https://static1.squarespace.com/static/53713878e4b0c4a5e90bbc44/t/5374b316e4b08aad0179f1ea/1400156952937/IGT_exterior.jpg?format=2500w);
+        background-position: bottom;
+        background-size: cover;
+        height: 100%;
+        position: relative;
+        color: white;
+    }
+    #footer-heading {
+        text-align: center;
+        text-transform: uppercase;
+        padding: 50px;
+    }
+
+    .container .contact-form {
+        padding: 35px;
+        font-size: 1.2em;
+        background: white;
+        opacity: 0.7;
+        color: black;
+        height: 60%;
+    }
+    .container .contact-form .subtitle {
+       padding-bottom: 10px;
+    }    
+
     .rdg-expertise-category { float: left; min-height: 170px; width: 90%; display:flex;flex-direction:column; padding-bottom: 40px;}
     .rdg-expertise-category span { margin-top:auto; font-size: 26px; font-weight: bold; padding: 18px; }
 
@@ -178,7 +249,7 @@
 <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light navbar-custom bg-light">
-        <a class="navbar-brand" href="#">M. Herz & Son</a>
+        <a class="navbar-brand" href="#"><image src="m-herz-and-son-logo.png" alt="M Herz & Son" height="30px"></image></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>  
@@ -194,7 +265,7 @@
                     <a class="nav-link" href="#our-cutters">Our Diamonds</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">contact</a>
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
         </div>
@@ -216,22 +287,70 @@
     <section class="showcase">
             <div id="whoweare" class="slide">
                 <h1 class="text-right">Who we are</h1>
-                <p class="text-right">Our mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
+                <p class="text-right">M. Herz & Son is a diamond manufacturing and trading company. Three generations of our family have been growing the company for almost 70 years. Our perfectly cut diamonds is a result of our over a half a decade of experience.Our top priorities, is providing unmatched quality and service of the highest standards.
+                <br><br> We are based in the heart of the world’s diamond trade capital, New York’s 47th Street. Today we stand as a active member of this community following closely the latest trends, tastes and innovations in the industry.
+                    </p>
             </div>
     </section>    
     <section class="showcase">
             <div id="our-cutters"class="slide">
                 <h1 class="text-left">Our Cutters</h1>
-                <p class="text-left">Our mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
+                <p class="text-left">Our workers are highly skilled and extremely creative. They create excellent cut and polished from unique rough diamonds. We have a great combination of having the best sources for rough diamonds, and the skilled hands of our hand picked professional cutters. <br><br>We utilize century old experience and cutting edge technology to ensure quality beyond possible. Today, we stand apart as being able to deliver quality diamonds with extraordinary cuts.</p>
             </div>
     </section>    
     <section id="whoweare" class="slide your-cust">
             <div>
-                <h1 class="text-right">Your Customers</h1>
+                <h1 class="text-right">Our Mission</h1>
                 <p class="text-right">Our mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
             </div>
     </section>    
-    <section>
+    <section class="history" >
+        <footer>
+            <h1 id="footer-heading">Contact Us</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.227638376087!2d-73.98156253463354!3d40.7570177293271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4065fd2337d85811%3A0xd964c12cf00e3b0f!2sM+Herz+%26+Son!5e0!3m2!1sen!2sus!4v1556477656465!5m2!1sen!2sus" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col contact-form">
+                        <h2 class="subtitle">Give us a call.</h2>
+                        <p>ADDRESS  |  50 West 47th Street<br>New York, NY 11236</p>
+                        <p>PHONE  |  212-719-4747</p>
+                        <p>FAX  |  718-879-9090</p>
+                        <p>EMAIL  |  mayer@mherz.com</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!--
+       <img class="col img-fluid " id="mherz-img" src="http://pietrapr.com/wordpress/wp-content/uploads/2014/03/12s-e1395462585657.jpeg" alt="">
+-->
+                    <!-- <div class="col-sm">                    
+                        <p id="u742-2">We’d Love to Hear from You!</p>
+                        <p id="u742-3">&nbsp;</p>
+                        <p id="u742-5">Hoveniersstraat 51, Suite 1211</p>
+                        <p id="u742-7">2018 Antwerpen, Belgium</p>
+                        <p id="u742-8">&nbsp;</p>
+                        <p class="phone" id="u742-12">Tel:&nbsp; <a class="nonblock" href="tel:+3232011080">+32-3-201 10 80</a></p>
+                        <p class="phone" id="u742-14">Fax: +32-3-232 41 02</p>
+                        <p id="u742-15">&nbsp;</p>
+                        <p class="phone" id="u742-18"><a class="nonblock" href="tel:+18664003001">Toll free USA: 1-866-4003001</a></p>
+                        <p class="phone" id="u742-21"><a class="nonblock" href="tel:+498001810319">Toll free Germany: 0-800-1810319</a></p>
+                        <p class="phone" id="u742-25">Toll free U.K.: <a class="nonblock" href="tel:08003767999">0-800-3767999</a></p>
+                        <p class="phone" id="u742-29">Hong Kong: <a class="nonblock" href="tel:+85293136030">+852-93136030</a></p>
+                        <p id="u742-30">&nbsp;</p>
+                        <p class="phone" id="u742-34">Email: <a class="nonblock" href="mailto:info@rubinandzonen.be" target="_blank">info@rubinandzonen.be</a></p>
+                    </div> -->
+
+                      <!--  <section>
       <h1 class="text-center" style="font-size: 3em; font-weight: 500;">Our History</h1>
       <div class="row mt-5 pt-5">
         <div class="col-6 text-right">
@@ -287,17 +406,4 @@
             <h1 class="text-center">Our Mission</h1>
             <p class="text-center">ur mission is to build lasting partnerships with our clients and to help them sell more diamonds. We dedicate ourselves to providing only the most salable and brilliant collection of loose diamonds and sharing our expertise with jewelers worldwide. This culminates in creating new tools and online experiences to improve our customers’ business.</p>
         </div>
-    </section>
-    <section class="history" >
-        <footer>
-            
-        </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
-
-<!--
-       <img class="col img-fluid " id="mherz-img" src="http://pietrapr.com/wordpress/wp-content/uploads/2014/03/12s-e1395462585657.jpeg" alt="">
--->
+    </section> -->
