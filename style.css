@@ -114,13 +114,13 @@ nav ul li a:hover {
     padding-top: 120px;
 }
 .fadeIn{
-    animation-duration: 3s;
+    animation-duration: 5s;
 }
 .heading-text {
     color: white;
     width: 45%;
     margin: auto;
-    font-size: 3.5em;
+    font-size: 3.2em;
     text-align: center;
     display: block;
     font-weight: 100;
@@ -144,7 +144,7 @@ nav ul li a:hover {
         padding-top: 65px;
     }
     .heading-text {
-        font-size: 3em;
+        font-size: 2.3em;
         width: 55%;
     }
 }
@@ -386,8 +386,7 @@ nav ul li a:hover {
     height: 300px;
     width: 300px;
     background-size: cover;
-    background-position: center;
-    border-bottom: 2px solid #ddd; 
+    border-bottom: 1px solid #ddd; 
 }
 .card-text h5 {
     font-weight: 150;
@@ -416,15 +415,6 @@ nav ul li a:hover {
 .photo6 {
     background-image: url(viewfile.jpg);
     width: 300px;
-}
-.photo7 {
-    background-image: url(splogo.jpg);
-}
-.photo8 {
-    background-image: url('obel j 5.jpg');
-}
-.photo9 {
-    background-image: url(noteoff.jpg);
 }
 /* footer */
 footer {
