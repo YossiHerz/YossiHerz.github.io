@@ -1,406 +1,620 @@
 <!DOCTYPE html>
-<html><head>
-    <meta charset="utf-8">
-    <title>Davening Trip Planner</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-    <script src="https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js"></script>
-    <link href="https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.1.2/mapbox-gl-geocoder.min.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.1.2/mapbox-gl-geocoder.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <style>
+<html>
+ 
+  <head>
+      <meta charset="utf-8">
+      <meta name="robots" content="noindex, nofollow">
+      <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+     
+      <title>Stay + Daven | Instantly find hotels located close to a shul.</title>
+      <script src="https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js"></script>
+      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.1.2/mapbox-gl-geocoder.min.js"></script>
+     
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+      <link href="https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.1.2/mapbox-gl-geocoder.css" type="text/css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+     
+      <style>
+        * {
+          -webkit-box-sizing:border-box;
+          -moz-box-sizing:border-box;
+          box-sizing:border-box;
+        }
+        body {
+          color:#404040;
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          margin:0;
+          padding:0;
+          -webkit-font-smoothing:antialiased;
+        }
+        #background {
+          position: absolute;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 1;
+        }
+        #logo {
+          position:absolute;
+          z-index:3;
+          left:40%;
+          top:10%;
+          color: white;   
+          font-size: 2.5em;
+          text-transform: uppercase;
+          padding: 30px;
+          border: 4px white solid; 
+          -webkit-box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          -moz-box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          -webkit-text-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          -moz-text-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          text-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+        }
+        #box {
+          position:absolute;
+          z-index:2;
+          width:55%;
+          height: 25%;
+          left:25%;
+          top:35%;
+          background: #11b6d7;
+          -webkit-box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          -moz-box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.55);
+          
+        }
+        #title {
+          position:absolute;
+          z-index:3;
+          width:42%;
+          left:30%;
+          top:38.5%;
+          color: white;
+        }
+        #geocoder {
+          position:absolute;
+          z-index:3;
+          width:60%;
+          left:30%;
+          top:47%;
+        }
+        .mapboxgl-ctrl-geocoder {
+          max-width: 70%;
+        }
+        .sidebar {
+          position:absolute;
+          width:33.3333%;
+          height:100%;
+          top:0;left:0;
+          overflow:hidden;
+          border-right:1px solid rgba(0,0,0,0.25);
+        }
+        .pad2 {
+          padding:20px;
+        }
 
-      body {
-        color:#404040;
-        font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-        margin:0;
-        padding:0;
-        -webkit-font-smoothing:antialiased;
-      }
-      * {
-        -webkit-box-sizing:border-box;
-        -moz-box-sizing:border-box;
-        box-sizing:border-box;
-      }
-      .sidebar {
-        position:absolute;
-        width:33.3333%;
-        height:100%;
-        top:0;left:0;
-        overflow:hidden;
-        border-right:1px solid rgba(0,0,0,0.25);
-      }
-      .pad2 {
-        padding:20px;
-      }
+        .map {
+          position:absolute;
+          left:33.3333%;
+          width:66.6666%;
+          top:0;bottom:0;
+        }
+        h1 {
+          font-size:22px;
+          margin:0;
+          font-weight:400;
+          line-height: 20px;
+          padding: 20px 2px 15px 2px;
+        }
+        a {
+          color:#404040;
+          text-decoration:none;
+        }
+        a:hover {
+          color:#101010;
+        }
+        .heading {
+          background:#fff;
+          border-bottom:1px solid #eee;
+          min-height:60px;
+          line-height:40px;
+          padding:0 10px;
+          background-color: #11b6d7;
+          color: #fff;
+        }
+        .heading p {
+          margin: 0;
+          padding: 0 0 10px 2px;
+          line-height: 20px;
+        }
+        #intro {
+          padding: 0 40px 10px 12px;
+        }
+        .listings {
+          height:100%;
+          overflow:auto;
+          padding-bottom:60px;
+        }
+        i {
+          color: #11b6d7;
+          padding: 3px;
+        }
+        .listings .item {
+          display:block;
+          border-bottom: 2px solid #bebebe;
+          padding:10px;
+          text-decoration:none;
+        }
+        .listings .item:last-child { border-bottom:none; }
+        .listings .item .name {
+          display:block;
+          color:#2a3233;
+          font-weight:700;
+          margin: 25px 0 3px 0;
+        }
+        .distance {
+          margin-left: 28px;
+        }
+        .listings .item .address {
+          display:block;
+          color:#2a3233;
+          font-weight:400;
+          margin: 3px 0 25px 28px;
+        }
+        .listings .item .distance {
+          font-style: italic;
+          display:block;
+          color:#11b6d7;
+          font-weight:400;
+        }      
+        .listings .item:hover { background-color:#eee; cursor: pointer; }
+        .listings .item:hover > .name { color: #474747; }
+        .listings .item .name:hover > .listings .item .name{ color:#eee; }
+        .listings .item .address:hover > .listings .item .address{ color:#bebebe; }
+        .listings .item .address:hover > .listings .item .name{ color:#bebebe; }
 
-      .map {
-        position:absolute;
-        left:33.3333%;
-        width:66.6666%;
-        top:0;bottom:0;
-      }
+        .listings .item.active {
+          background-color:#f8f8f8;
+        }
+        ::-webkit-scrollbar {
+          width:4px;
+          height:3px;
+          border-left:0;
+          background:white;
+        }
+        ::-webkit-scrollbar-track {
+          background:none;
+        }
+        ::-webkit-scrollbar-thumb {
+          background:#2a3233;
+          border-radius:0;
+        }
+        .marker {
+          border: none;
+          cursor: pointer;
+          height: 56px;
+          width: 56px;
+          background-image: url(marker.png);
+          background-color: rgba(0, 0, 0, 0);
+        }
+        .clearfix { display:block; }
+        .clearfix:after {
+          content:'.';
+          display:block;
+          height:0;
+          clear:both;
+          visibility:hidden;
+        }
+        .mapboxgl-popup {
+          padding-bottom: 50px;
+        }
+        .mapboxgl-popup-close-button {
+          display:none;
+        }
+        .mapboxgl-popup-content {
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          padding:0;
+          width:180px;
+        }
+        .mapboxgl-popup-content-wrapper {
+          padding:1%;
+        }
+        .mapboxgl-popup-content h3 {
+          background:#11b6d7 ;
+          color:#fff;
+          margin:0;
+          display:block;
+          padding:10px;
+          border-radius:3px 3px 0 0;
+          font-weight:700;
+          margin-top:-15px;
+        }
+        .mapboxgl-popup-content h4 {
+          margin:0;
+          display:block;
+          padding: 10px 10px 10px 10px;
+          font-weight:400;
+        }
+        .mapboxgl-popup-content div {
+          padding:10px;
+        }
+        .mapboxgl-container .leaflet-marker-icon {
+          cursor:pointer;
+        }
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+          margin-top: 15px;
+        }
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+          border-bottom-color: #2a3233;
+        }
+        .mapboxgl-ctrl-geocoder {
+          border: 2px solid #2a3233;
+          border-radius: 0;
+          position: relative;
+          top: 0;
+          width: 800px;
+          margin-top: 0;
+          border: 0;
+        }
+        .mapboxgl-ctrl-geocoder > div {
+          min-width:100%;
+          margin-left:0;
+        }
+      </style>
+  </head>
+  
+  <body>
+    <div>
+      <h1 id="logo">Stay + Daven</h1>
+      <img id="background" src="daven-hotel.png" alt="photo">
+      <div id="box"></div>
+      <h2 id="title">Instantly find hotels located close to a shul.</h2>
+      <div id="geocoder"></div>
+    </div>
 
-      h1 {
-        font-size:22px;
-        margin:0;
-        font-weight:400;
-        line-height: 20px;
-        padding: 20px 2px 15px 2px;
-      }
-      a {
-        color:#404040;
-        text-decoration:none;
-      }
-      a:hover {
-        color:#101010;
-      }
-      .heading {
-        background:#fff;
-        border-bottom:1px solid #eee;
-        min-height:60px;
-        line-height:40px;
-        padding:0 10px;
-        background-color: #11b6d7;
-        color: #fff;
-      }
-      .heading p {
-        margin: 0;
-        padding: 0 0 10px 2px;
-        line-height: 20px;
-      }
-      #intro {
-        padding: 0 40px 10px 12px;
-      }
-      .listings {
-        height:100%;
-        overflow:auto;
-        padding-bottom:60px;
-      }
-      i {
-        color: #11b6d7;
-        padding: 3px;
-      }
-      .listings .item {
-        display:block;
-        border-bottom: 2px solid #bebebe;
-        padding:10px;
-        text-decoration:none;
-      }
-      .listings .item:last-child { border-bottom:none; }
-      .listings .item .name {
-        display:block;
-        color:#2a3233;
-        font-weight:700;
-        margin: 25px 0 3px 0;
-      }
-      .distance {
-        margin-left: 28px;
-      }
-      .listings .item .address {
-        display:block;
-        color:#2a3233;
-        font-weight:400;
-        margin: 3px 0 25px 28px;
-      }
-      .listings .item .distance {
-        font-style: italic;
-        display:block;
-        color:#11b6d7;
-        font-weight:400;
-      }      
-      .listings .item:hover { background-color:#eee; }
-      .listings .item:hover > .name { color: #474747; }
-      .listings .item .name:hover > .listings .item .name{ color:#eee; }
-      .listings .item .address:hover > .listings .item .address{ color:#bebebe; }
-      .listings .item .address:hover > .listings .item .name{ color:#bebebe; }
-
-      .listings .item.active {
-        background-color:#f8f8f8;
-      }
-      ::-webkit-scrollbar {
-        width:4px;
-        height:3px;
-        border-left:0;
-        background:white;
-      }
-      ::-webkit-scrollbar-track {
-        background:none;
-      }
-      ::-webkit-scrollbar-thumb {
-        background:#2a3233;
-        border-radius:0;
-      }
-      .marker {
-        border: none;
-        cursor: pointer;
-        height: 56px;
-        width: 56px;
-        background-image: url(marker.png);
-        background-color: rgba(0, 0, 0, 0);
-      }
-      .clearfix { display:block; }
-      .clearfix:after {
-        content:'.';
-        display:block;
-        height:0;
-        clear:both;
-        visibility:hidden;
-      }
-      .mapboxgl-popup {
-        padding-bottom: 50px;
-      }
-      .mapboxgl-popup-close-button {
-        display:none;
-      }
-      .mapboxgl-popup-content {
-        font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-        padding:0;
-        width:180px;
-      }
-      .mapboxgl-popup-content-wrapper {
-        padding:1%;
-      }
-      .mapboxgl-popup-content h3 {
-        background:#2a3233;
-        color:#fff;
-        margin:0;
-        display:block;
-        padding:10px;
-        border-radius:3px 3px 0 0;
-        font-weight:700;
-        margin-top:-15px;
-      }
-      .mapboxgl-popup-content h4 {
-        margin:0;
-        display:block;
-        padding: 10px 10px 10px 10px;
-        font-weight:400;
-      }
-      .mapboxgl-popup-content div {
-        padding:10px;
-      }
-      .mapboxgl-container .leaflet-marker-icon {
-        cursor:pointer;
-      }
-      .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-        margin-top: 15px;
-      }
-      .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-        border-bottom-color: #2a3233;
-      }
-      .mapboxgl-ctrl-geocoder {
-        border: 2px solid #2a3233;
-        border-radius: 0;
-        position: relative;
-        top: 0;
-        width: 800px;
-        margin-top: 0;
-        border: 0;
-      }
-      .mapboxgl-ctrl-geocoder > div {
-        min-width:100%;
-        margin-left:0;
-      }
-    </style>
-</head>
-<body>
     <div class='sidebar'>
         <div class='heading'>
-            <h1>Davening Trip Planner</h1>
-            <p>Find hotels closest to a shul.</p>
+            <h1>Stay + Daven</h1>
         </div>
+       
         <div id='listings' class='listings'>
           <div id="intro">
-            <h3>Enter a location in the search box, and we will find the hotels closest to a shul. </h3>
+            <h1>Loading...</h1>
+
           </div>
         </div>
     </div>
-  </div>
-  <div id="map" class="map mapboxgl-map">
-  </div>
-<script>
-if (!('remove' in Element.prototype)) {
-  Element.prototype.remove = function() {
-    if (this.parentNode) {
-        this.parentNode.removeChild(this);
-    }
-  };
-}
-
-mapboxgl.accessToken = 'pk.eyJ1IjoicnVzdHlibHV6IiwiYSI6ImNqdmJleXExNjB6MjI0NHJ4dTRkM2VtdGcifQ.nRVpaDXWRWJ3JXZbMuRJNg';
-
-let map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/light-v10',
-  center: [-98.591682, 38.406552],
-  zoom: 3.75
-});
-
-geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  mapboxgl: mapboxgl,
-  marker: true,
-  countries: 'us',
-  limit: 4,
-  type: 'place'
-});
-map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-map.addControl(geocoder, 'top-left');
-
-let data = {};
-
-geocoder.on('result', (location) => {
-  console.log('result : ');
-  console.log(location);
-  let locCoordinates = location.result.geometry.coordinates;
-  fetch("https://api.mapbox.com/geocoding/v5/mapbox.places/hotel.json?proximity=" + locCoordinates[0] + "%2C%20" + locCoordinates[1] + "&access_token=pk.eyJ1IjoicnVzdHlibHV6IiwiYSI6ImNqdmJleXExNjB6MjI0NHJ4dTRkM2VtdGcifQ.nRVpaDXWRWJ3JXZbMuRJNg")
-    .then(res => res.json())
-    .then(places => {
-    data = places;
     
-    let shuls = [];
-    let date = new Date();
-    let url = [];
-    for(let i = 0; i< places.features.length; i++) {
-      let currentPlace = places.features[i];
-      console.log(currentPlace);
-      let coords = currentPlace.geometry.coordinates;
-      url.push("https://www.godaven.com/api/V1/shuls/radius-search?lat=" + coords[1] + "&lng=" + coords[0] + "&distance=5&pagenumber=1&nusach=&tefillah=&day=&current_time=" + date.getHours() + ":" + date.getMinutes() + "&todays_day=" + date.getDay() + "&users_date=" + date.toISOString().slice(0,10));
-    }
-    let fetches = [];
-    for (let i = 0; i < url.length; i++) {
-      console.log(url[i]);
-      fetches.push(
-        fetch(url[i])
-        .then(res => res.json())
-        .then(res => {
-          let currentShul = res.shuls[0];
-          let shul = {
-          name: currentShul.name,
-          address: currentShul.formatted_address,
-          distance: currentShul.distance,
-          coordinates: [currentShul.location_point.coordinates[1], currentShul.location_point.coordinates[0]],
-          index: i
-          };
-          shuls.push(shul);
-          })
-      .catch(status, err => console.log(status, err))
-    );
-  }
-  Promise.all(fetches).then(function() {
-    shuls.sort((a,b) => a.distance - b.distance);
-    console.log(shuls);
-    buildLocationList(places, shuls);
-  });
-})
-  .catch(status, err => console.log(status, err))
-})
-
-function buildLocationList(data, shuls) {
-  let listings = document.getElementById('listings');
-    while (listings.firstChild) {
-      listings.removeChild(listings.firstChild);
-    }
-
-  for (let i = 0; i < data.features.length; i++) {
-    let currentShul = shuls[i];
-    let currentIndex = shuls[i].index;
-    let currentFeature = data.features[currentIndex];
-    let prop = currentFeature.properties;
-
-    let listings = document.getElementById('listings');
-    let listing = listings.appendChild(document.createElement('div'));
-    listing.className = 'item';
-    listing.id = "listing-" + i;
-    listing.dataPosition = currentIndex;
-
-
-    var link = listing.appendChild(document.createElement('h3'));
-    link.href = '#';
-    link.className = 'name';
-    link.innerHTML = '<i class="fas fa-hotel"></i>    ' + currentFeature.text;
-
-    var link = listing.appendChild(document.createElement('p'));
-    link.href = '#';
-    link.className = 'address';
-    link.innerHTML = currentFeature.place_name.slice(currentFeature.place_name.indexOf(',') + 1, currentFeature.place_name.lastIndexOf(','));
-
-    var link = listing.appendChild(document.createElement('p'));
-    link.href = '#';
-    link.className = 'distance';
-    link.innerHTML = 'Distance to Nearest shul: ' + currentShul.distance.toFixed(2) + ' miles';
-
-    var link = listing.appendChild(document.createElement('h3'));
-    link.href = '#';
-    link.className = 'name';
-    console.log(link.dataPosition);
-    let shulArr = currentShul.name.split(' ')
-    let shulCap = []
-    for(let i = 0; i < shulArr.length; i++) {
-      let cur = shulArr[i];
-      let uc = cur[0].toUpperCase() + cur.slice(1);
-      shulCap.push(uc);
-    }
-    link.innerHTML = '<i class="fas fa-star-of-david"></i>   ' + shulCap.join(' ');
-
-    var link = listing.appendChild(document.createElement('p'));
-    link.href = '#';
-    link.className = 'address';
-    link.innerHTML = currentShul.address;
-    console.log(link.dataPosition);
-
-
-
-
-    listing.addEventListener('click', function(e){
-      // Update the currentFeature to the store associated with the clicked link
-      let clickedListing = data.features[this.dataPosition];
-      console.log(this.dataPosition);
-      // 1. Fly to the point
-      flyToStore(clickedListing);
-
-      // 2. Close all other popups and display popup for clicked store
-      createPopUp(clickedListing);
-
-      // 3. Highlight listing in sidebar (and remove highlight for all other listings)
-      var activeItem = document.getElementsByClassName('active');
-
-      if (activeItem[0]) {
-         activeItem[0].classList.remove('active');
+    <div id="map" class="map mapboxgl-map"></div>
+    
+    <script>
+      
+      if (!('remove' in Element.prototype)) {
+        Element.prototype.remove = function() {
+          if (this.parentNode) {
+              this.parentNode.removeChild(this);
+          }
+        };
       }
-      this.parentNode.classList.add('active');
 
-    });
+      const accessToken = 'pk.eyJ1IjoicnVzdHlibHV6IiwiYSI6ImNqdmJleXExNjB6MjI0NHJ4dTRkM2VtdGcifQ.nRVpaDXWRWJ3JXZbMuRJNg';
+      const mapboxUrl = "https://api.mapbox.com/geocoding/v5/";
+      const goDavenUrl = "https://www.godaven.com/api/V1/";
+      mapboxgl.accessToken = accessToken;
 
-    function flyToStore(currentFeatur) {
-      map.flyTo({
-        center: currentFeatur.geometry.coordinates,
-        zoom: 15
+      let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-98.591682, 38.406552],
+        zoom: 3.75
       });
-    }
 
-    function createPopUp(currentFeatur) {
-      console.log(currentFeatur);
-      let popUps = document.getElementsByClassName('mapboxgl-popup');
-      // Check if there is already a popup on the map and if so, remove it
-      if (popUps[0]) popUps[0].remove();
+      geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: true,
+        countries: 'us',
+        limit: 4,
+        type: 'place',
+        placeholder: 'Enter address, city, or zip code...'
+      });
+      map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+      //map.addControl(geocoder, 'top-left');
+      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-      let popup = new mapboxgl.Popup({ closeOnClick: false })
-        .setLngLat(currentFeatur.geometry.coordinates)
-        .setHTML('<h3>' + currentFeatur.text + '</h3>' +
-          '<h4>' + currentFeatur.place_name.slice(currentFeatur.place_name.indexOf(',') + 1, currentFeatur.place_name.lastIndexOf(',')) + '</h4>')
-        .addTo(map);
-    }
-  }
-}
+      let data = {};
+
+      geocoder.on('result', (location) => {
+        document.getElementById('background').style.display = "none";
+        document.getElementById('box').style.display = "none";
+        document.getElementById('title').style.display = "none";
+        document.getElementById('logo').style.display = "none";
+        document.getElementById('geocoder').style.left = "0.5%";
+        document.getElementById('geocoder').style.top = "1.5%";
+        document.getElementById('geocoder').style.width = "45%";
+
+        let locCoordinates = location.result.geometry.coordinates;
+        fetch(`${mapboxUrl}mapbox.places/hotel.json?proximity=` + locCoordinates[0] + "%2C%20" + locCoordinates[1] + `&access_token=${accessToken}`)
+          .then(res => res.json())
+          .then(places => {
+            let shuls = [];
+            let date = new Date();
+            let url = [];
+  
+            // const shulPromises = places.features.map(hotel => {
+            //   return new Promise((resolve, reject) => {
+            //     fetch(`${goDavenUrl}shuls/radius-search?lat=${coords[1]}&lng=${coords[0]}&distance=5&pagenumber=1&nusach=&tefillah=&day=&current_time=" + date.getHours() + ":" + date.getMinutes() + "&todays_day=" + date.getDay() + "&users_date=" + date.toISOString().slice(0,10));`)
+            //   });
+            // });
+
+            // Promise.all(shulPromises).then();
+
+            for(let i = 0; i< places.features.length; i++) {
+              let currentPlace = places.features[i];
+              let coords = currentPlace.geometry.coordinates;
+              url.push(`${goDavenUrl}shuls/radius-search?lat=${coords[1]}&lng=${coords[0]}&distance=5&pagenumber=1&nusach=&tefillah=&day=&current_time=${date.getHours()}:${date.getMinutes()}&todays_day=${date.getDay()}&users_date=${date.toISOString().slice(0,10)}`)
+          
+              //url.push("shuls/radius-search?lat=" + coords[1] + "&lng=" + coords[0] + "&distance=5&pagenumber=1&nusach=&tefillah=&day=&current_time=" + date.getHours() + ":" + date.getMinutes() + "&todays_day=" + date.getDay() + "&users_date=" + date.toISOString().slice(0,10));
+            }
+            
+            let fetches = [];
+            for (let i = 0; i < url.length; i++) {
+              fetches.push(
+                fetch(url[i])
+                .then(res => res.json())
+                .then(res => {
+                  let currentShul = res.shuls[0];
+                  let shul = {
+                  name: currentShul.name,
+                  address: currentShul.formatted_address,
+                  distance: currentShul.distance,
+                  coordinates: [currentShul.location_point.coordinates[1], currentShul.location_point.coordinates[0]],
+                  index: i
+                  };
+                  shuls.push(shul);
+                  })
+            .catch(status, err => console.log(status, err))
+          );
+        }
+        Promise.all(fetches).then(function() {
+          shuls.sort((a,b) => a.distance - b.distance);
+          
+          buildLocationList(places, shuls);
+          createLines(places, shuls);
+          createMarkers(places);
+          createShulMarkers(shuls);
+        });
+      })
+          .catch(status, err => console.log(status, err))
+      })
+
+      function createMarkers (dataApi) {
+        let featuresApi = [];
+        for (let i = 0; i< dataApi.features.length; i ++) {
+            let coordinatesApi = dataApi.features[i].geometry.coordinates;
+            let nameApi = dataApi.features[i].place_name.slice(0, dataApi.features[i].place_name.indexOf(','));
+            let featureApi = {
+            "type": "Feature",
+            "geometry": {
+            "type": "Point",
+            "coordinates": coordinatesApi
+            },
+            "properties": {
+            "title": nameApi,
+            "icon": "lodging"
+            }
+            };
+            featuresApi.push(featureApi);
+        }
+        let pointsLayer = {
+          "id": "points" + Math.random() * 10,
+          "type": "symbol",
+          "source": {
+          "type": "geojson",
+          "data": {
+          "type": "FeatureCollection",
+          "features": featuresApi
+          }
+          },
+          "layout": {
+          "icon-image": "{icon}-15",
+          "text-field": "{title}",
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top",
+          "icon-allow-overlap": true,
+          "text-allow-overlap": false,
+          },
+            "paint": {
+            "text-color": "#11b6d7"
+          }
+        }
+        map.addLayer(pointsLayer);
+      } 
+
+      function createShulMarkers (dataApi) {
+        let featuresApi = [];
+        for (let i = 0; i< dataApi.length; i ++) {
+            let coordinatesApi = [dataApi[i].coordinates[1], dataApi[i].coordinates[0]];
+            let nameApi = dataApi[i].name.slice(0, dataApi[i].name.indexOf(','));
+            let featureApi = {
+            "type": "Feature",
+            "geometry": {
+            "type": "Point",
+            "coordinates": coordinatesApi
+            },
+            "properties": {
+            "title": nameApi,
+            "icon": "religious-jewish",
+            }
+            };
+            console.log(1235);
+            console.log(featureApi);
+            featuresApi.push(featureApi);
+        }
+        let pointsLayer = {
+          "id": "points" + Math.random() * 20,
+          "type": "symbol",
+          "source": {
+          "type": "geojson",
+          "data": {
+          "type": "FeatureCollection",
+          "features": featuresApi
+          }
+          },
+          "layout": {
+          "icon-image": "{icon}-15",
+          "text-field": "{title}",
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top"
+          },
+          paint: {
+          "text-color": "#11b6d7"
+          }
+        }
+        map.addLayer(pointsLayer);
+      } 
+
+      function buildLocationList(data, shuls) {
+        let listings = document.getElementById('listings');
+          while (listings.firstChild) {
+            listings.removeChild(listings.firstChild);
+          }
+
+        for (let i = 0; i < data.features.length; i++) {
+          let currentShul = shuls[i];
+          let currentIndex = shuls[i].index;
+          let currentFeature = data.features[currentIndex];
+          let prop = currentFeature.properties;
+
+          let listings = document.getElementById('listings');
+          let listing = listings.appendChild(document.createElement('div'));
+          listing.className = 'item';
+          listing.id = "listing-" + i;
+          listing.dataPosition = currentIndex;
+
+
+          var link = listing.appendChild(document.createElement('h3'));
+          link.href = '#';
+          link.className = 'name';
+          link.innerHTML = '<i class="fas fa-hotel"></i>    ' + currentFeature.text;
+
+          var link = listing.appendChild(document.createElement('p'));
+          link.href = '#';
+          link.className = 'address';
+          link.innerHTML = currentFeature.place_name.slice(currentFeature.place_name.indexOf(',') + 1, currentFeature.place_name.lastIndexOf(','));
+
+          var link = listing.appendChild(document.createElement('p'));
+          link.href = '#';
+          link.className = 'distance';
+          link.innerHTML = 'Distance to Nearest shul: ' + currentShul.distance.toFixed(2) + ' miles';
+
+          var link = listing.appendChild(document.createElement('h3'));
+          link.href = '#';
+          link.className = 'name';
+          console.log(link.dataPosition);
+          let shulArr = currentShul.name.split(' ')
+          let shulCap = []
+          for(let i = 0; i < shulArr.length; i++) {
+            let cur = shulArr[i];
+            let uc = cur[0].toUpperCase() + cur.slice(1);
+            shulCap.push(uc);
+          }
+          link.innerHTML = '<i class="fas fa-star-of-david"></i>   ' + shulCap.join(' ');
+
+          var link = listing.appendChild(document.createElement('p'));
+          link.href = '#';
+          link.className = 'address';
+          link.innerHTML = currentShul.address;
+          console.log(link.dataPosition);
 
 
 
-  </script>
+
+          listing.addEventListener('mouseover', function(e){
+            // Update the currentFeature to the store associated with the clicked link
+            let clickedListing = data.features[this.dataPosition];
+            console.log(this.dataPosition);
+            // 1. Fly to the point
+            flyToStore(clickedListing);
+
+            // 2. Close all other popups and display popup for clicked store
+            createPopUp(clickedListing);
+
+            // 3. Highlight listing in sidebar (and remove highlight for all other listings)
+            var activeItem = document.getElementsByClassName('active');
+
+            if (activeItem[0]) {
+              activeItem[0].classList.remove('active');
+            }
+            this.parentNode.classList.add('active');
+
+          });
+
+          function flyToStore(currentFeatur) {
+            map.flyTo({
+              center: currentFeatur.geometry.coordinates,
+              zoom: 15
+            });
+          }
+
+          function createPopUp(currentFeatur) {
+            console.log(currentFeatur);
+            let popUps = document.getElementsByClassName('mapboxgl-popup');
+            // Check if there is already a popup on the map and if so, remove it
+            if (popUps[0]) popUps[0].remove();
+
+            let popup = new mapboxgl.Popup({ closeOnClick: false })
+              .setLngLat(currentFeatur.geometry.coordinates)
+              .setHTML('<h3>' + currentFeatur.text + '</h3>' +
+                '<h4>' + currentFeatur.place_name.slice(currentFeatur.place_name.indexOf(',') + 1, currentFeatur.place_name.lastIndexOf(',')) + '</h4>')
+              .addTo(map);
+          }
+        }
+      }
+
+      function createLines(data, shuls){
+        for (let i = 0; i < data.features.length; i++) {
+          let currentShul = shuls[i];
+          let currentIndex = shuls[i].index;
+          let currentFeature = data.features[currentIndex];
+          let shulCoords = currentShul.coordinates;
+          let hotelCoords = currentFeature.center;
+
+          map.addLayer({
+            "id": `line${currentIndex}`,
+            "type": "line",
+            "source": {
+              "type": "geojson",
+              "data": {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [shulCoords[1], shulCoords[0]],
+                    hotelCoords
+                  ]
+                  }
+                }
+            },
+            "layout": {
+               "line-cap": "round"
+              },
+              "paint": {
+                "line-color": "#cfcfcf",
+                "line-width": 1
+              }
+          });
+        }
+      }
+    </script>
 
 
-</body>
-</html>
+  </body>
+
+  </html>
